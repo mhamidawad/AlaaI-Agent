@@ -3,7 +3,7 @@
   "displayName": "AI Coding Agent",
   "description": "An intelligent AI-powered coding assistant for code analysis, generation, and assistance",
   "version": "1.0.0",
-  "publisher": "example-publisher",
+  "publisher": "moeaiagents",
   "engines": {
     "vscode": "^1.74.0"
   },
