@@ -1,188 +1,196 @@
-# AI Coding Agent - VS Code Extension
+# AI Coding Agent
 
-A sophisticated AI-powered coding assistant extension for Visual Studio Code that can analyze, understand, and generate code across multiple programming languages. This extension combines the power of large language models with advanced code analysis tools to provide intelligent coding assistance directly in your editor.
+A sophisticated AI-powered coding assistant available as both a Python CLI tool and a VS Code extension. This project combines the power of large language models with advanced code analysis tools to provide intelligent coding assistance across multiple platforms.
 
-## Features
+## 🚀 Available Versions
 
-- **🤖 AI Chat Interface**: Interactive chat panel for natural language coding assistance
-- **🔍 Code Analysis**: Deep understanding of your code with complexity analysis and suggestions
-- **✨ Code Generation**: Generate high-quality code snippets, functions, and modules from descriptions
-- **🔍 Code Review**: Automated code review with quality scoring and improvement suggestions
-- **🔧 Auto-Fix**: Automatically fix code issues and improve code quality
-- **📊 Project Overview**: Get comprehensive insights about your project structure and technologies
-- **🎯 Multi-Language Support**: Works with Python, JavaScript, TypeScript, Java, C++, and more
-- **🎨 Beautiful UI**: Modern interface integrated seamlessly with VS Code's design system
-- **⚙️ Flexible Configuration**: Support for both OpenAI and Anthropic AI models
+### 📦 Python CLI Tool
+A command-line interface for terminal-based AI coding assistance.
 
-## Installation
+**Features:**
+- Interactive CLI for coding assistance
+- Code analysis and generation
+- Project overview and insights
+- Multi-language support
+- Git integration
 
-### From VS Code Marketplace
-1. Open VS Code
-2. Go to Extensions (Ctrl+Shift+X)
-3. Search for "AI Coding Agent"
-4. Click Install
+**[View Python CLI Documentation →](./README-python.md)**
 
-### Manual Installation
-1. Download the `.vsix` file from the releases page
-2. Open VS Code
-3. Run `Extensions: Install from VSIX...` from the Command Palette
-4. Select the downloaded `.vsix` file
+### 🔧 VS Code Extension
+A fully-integrated Visual Studio Code extension with rich UI components.
 
-## Setup
+**Features:**
+- Interactive AI chat sidebar
+- Code analysis with visual feedback
+- One-click code generation and fixes
+- Project overview dashboard
+- Context menu integration
+- Beautiful webview interfaces
 
-1. **Configure API Keys**: After installation, you'll need to configure at least one AI provider:
-   - Open VS Code Settings (Ctrl+,)
-   - Search for "AI Coding Agent"
-   - Add your OpenAI API key and/or Anthropic API key
+**[View VS Code Extension →](./vscode-extension/)**
 
-2. **Choose Default Model**: Select your preferred AI model from the dropdown:
-   - GPT-4, GPT-4 Turbo, GPT-3.5 Turbo (OpenAI)
-   - Claude-3 Sonnet, Claude-3 Opus, Claude-3 Haiku (Anthropic)
+## 🏗️ Repository Structure
 
-## Usage
-
-### Chat Interface
-- Click the AI Coding Agent icon in the activity bar
-- Use the chat panel to ask questions, request explanations, or get coding help
-- The AI maintains context throughout your conversation
-
-### Quick Actions
-Use the Command Palette (Ctrl+Shift+P) and search for:
-
-- **AI Coding Agent: Start AI Chat** - Open the chat interface
-- **AI Coding Agent: Analyze Current File** - Analyze the active file
-- **AI Coding Agent: Generate Code** - Generate code from description
-- **AI Coding Agent: Review Code** - Review selected code or entire file
-- **AI Coding Agent: Fix Code Issues** - Automatically fix code problems
-- **AI Coding Agent: Get Project Overview** - Analyze your entire project
-
-### Context Menu
-Right-click in any code file to access:
-- Analyze File
-- Review Code
-- Fix Code Issues
-
-### Sidebar Panel
-The extension adds a dedicated sidebar with:
-- **AI Chat**: Interactive conversation interface
-- **Conversation History**: Track your recent interactions
-- **Quick Tools**: Easy access to common features
-
-## Configuration
-
-| Setting | Description | Default |
-|---------|-------------|---------|
-| `aiCodingAgent.openaiApiKey` | OpenAI API Key for GPT models | "" |
-| `aiCodingAgent.anthropicApiKey` | Anthropic API Key for Claude models | "" |
-| `aiCodingAgent.defaultModel` | Default AI model to use | "gpt-4" |
-| `aiCodingAgent.maxTokens` | Maximum tokens for AI responses | 4000 |
-| `aiCodingAgent.temperature` | AI creativity level (0-1) | 0.1 |
-| `aiCodingAgent.debug` | Enable debug mode | false |
-| `aiCodingAgent.ignorePatterns` | File patterns to ignore | `["__pycache__", "*.pyc", ".git", "node_modules"]` |
-| `aiCodingAgent.autoSave` | Auto-save files after AI modifications | true |
-| `aiCodingAgent.showInlineComments` | Show inline comments for suggestions | true |
-
-## Examples
-
-### Code Analysis
-```typescript
-// Select code and run "Analyze Current File"
-function calculateFibonacci(n: number): number {
-    if (n <= 1) return n;
-    return calculateFibonacci(n - 1) + calculateFibonacci(n - 2);
-}
 ```
-**AI Analysis**: "This is a recursive Fibonacci implementation with exponential time complexity. Consider using memoization or iterative approach for better performance."
-
-### Code Generation
-**Prompt**: "Create a TypeScript function to validate email addresses"
-
-**Generated Code**:
-```typescript
-function validateEmail(email: string): boolean {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
+ai-coding-agent/
+├── 📁 ai_coding_agent/          # Python CLI source code
+│   ├── core/                    # Core agent functionality
+│   ├── analyzers/              # Code analysis tools
+│   ├── generators/             # Code generation
+│   └── tools/                  # Additional tools
+├── 📁 vscode-extension/         # VS Code extension
+│   ├── src/                    # TypeScript source
+│   ├── package.json            # Extension manifest
+│   └── README.md               # Extension documentation
+├── 📁 tests/                   # Python tests
+├── pyproject.toml              # Python project config
+├── requirements.txt            # Python dependencies
+└── README.md                   # This file
 ```
 
-### Code Review
-The AI reviews your code and provides:
-- Overall quality score
-- Specific issues with severity levels
-- Improvement suggestions
-- Best practice recommendations
+## 🚀 Quick Start
 
-## Supported Languages
+### For Python CLI Users
 
-- TypeScript / JavaScript
-- Python
-- Java
-- C / C++
-- C#
-- Go
-- Rust
-- PHP
-- Ruby
-- Swift
-- Kotlin
-- Dart
-- HTML / CSS
-- And many more...
+```bash
+# Clone the repository
+git clone <repository-url>
+cd ai-coding-agent
 
-## Requirements
+# Install Python dependencies
+pip install -r requirements.txt
 
-- Visual Studio Code 1.74.0 or higher
-- Active internet connection
+# Start using the CLI
+python -m ai_coding_agent chat
+```
+
+### For VS Code Extension Users
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd ai-coding-agent/vscode-extension
+
+# Install dependencies
+npm install
+
+# Build the extension
+npm run compile
+
+# Package for installation
+npm run package
+```
+
+Or install directly from the VS Code Marketplace (when published).
+
+## 🔧 Configuration
+
+Both versions support the same AI providers and models:
+
+- **OpenAI**: GPT-4, GPT-4 Turbo, GPT-3.5 Turbo
+- **Anthropic**: Claude-3 Sonnet, Claude-3 Opus, Claude-3 Haiku
+
+### Python CLI Configuration
+Create a `.env` file in the root directory:
+
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+DEFAULT_MODEL=gpt-4
+```
+
+### VS Code Extension Configuration
+Configure through VS Code Settings:
+- `aiCodingAgent.openaiApiKey`
+- `aiCodingAgent.anthropicApiKey`
+- `aiCodingAgent.defaultModel`
+
+## 🌟 Features Comparison
+
+| Feature | Python CLI | VS Code Extension |
+|---------|------------|------------------|
+| Code Analysis | ✅ Terminal output | ✅ Rich webview panels |
+| Code Generation | ✅ Text output | ✅ Direct insertion |
+| Project Overview | ✅ Terminal display | ✅ Interactive dashboard |
+| Chat Interface | ✅ Terminal chat | ✅ Sidebar panel |
+| Context Menu | ❌ | ✅ Right-click integration |
+| History Tracking | ❌ | ✅ Conversation history |
+| Multi-file Support | ✅ CLI commands | ✅ Workspace integration |
+
+## 🛠️ Development
+
+### Python CLI Development
+
+```bash
+# Install development dependencies
+pip install -e .[dev]
+
+# Run tests
+pytest
+
+# Format code
+black .
+isort .
+```
+
+### VS Code Extension Development
+
+```bash
+cd vscode-extension
+
+# Install dependencies
+npm install
+
+# Start development mode
+npm run watch
+
+# Run tests
+npm test
+
+# Package extension
+npm run package
+```
+
+## 📋 Requirements
+
+### Python CLI
+- Python 3.9+
 - OpenAI API key and/or Anthropic API key
+- Internet connection
 
-## Privacy & Security
+### VS Code Extension
+- Visual Studio Code 1.74.0+
+- OpenAI API key and/or Anthropic API key
+- Internet connection
 
-- Your code is only sent to the configured AI provider when you explicitly use AI features
-- API keys are stored securely in VS Code's configuration
-- No code is stored or logged by the extension
-- All communication with AI providers is encrypted
+## 🤝 Contributing
 
-## Troubleshooting
+We welcome contributions to both the Python CLI and VS Code extension!
 
-### Common Issues
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests (for Python CLI: pytest, for VS Code: npm test)
+5. Submit a pull request
 
-**"No API key configured"**
-- Go to Settings → Extensions → AI Coding Agent
-- Add your OpenAI or Anthropic API key
+### Development Guidelines
 
-**"AI request failed"**
-- Check your internet connection
-- Verify your API key is valid and has sufficient credits
-- Try switching to a different AI model
+- **Python CLI**: Follow PEP 8, use type hints, add docstrings
+- **VS Code Extension**: Use TypeScript, follow VS Code extension guidelines
+- **Documentation**: Update relevant README files
+- **Tests**: Ensure all tests pass before submitting
 
-**Extension not loading**
-- Restart VS Code
-- Check for extension updates
-- Look for errors in the Developer Console (Help → Toggle Developer Tools)
-
-## Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on:
-- Setting up the development environment
-- Code style guidelines
-- Submitting pull requests
-- Reporting bugs
-
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for a detailed list of changes in each version.
-
-## License
+## 📄 License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
-## Support
+## 🔗 Links
 
-- 📖 [Documentation](https://github.com/ai-coding-agent/vscode-extension/wiki)
-- 🐛 [Report Issues](https://github.com/ai-coding-agent/vscode-extension/issues)
-- 💬 [Discussions](https://github.com/ai-coding-agent/vscode-extension/discussions)
-- 📧 [Email Support](mailto:support@ai-coding-agent.com)
+- **Python CLI Documentation**: [README-python.md](./README-python.md)
+- **VS Code Extension**: [vscode-extension/](./vscode-extension/)
+- **Issues**: [GitHub Issues](https://github.com/ai-coding-agent/ai-coding-agent/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/ai-coding-agent/ai-coding-agent/discussions)
 
 ---
 
-**Boost your coding productivity with AI assistance!** ⚡
+**Choose your preferred interface and start coding with AI assistance!** ⚡
