@@ -1,126 +1,188 @@
-# AI Coding Agent
+# AI Coding Agent - VS Code Extension
 
-A sophisticated AI-powered coding assistant that can analyze, understand, and generate code across multiple programming languages. This agent combines the power of large language models with advanced code analysis tools to provide intelligent coding assistance.
+A sophisticated AI-powered coding assistant extension for Visual Studio Code that can analyze, understand, and generate code across multiple programming languages. This extension combines the power of large language models with advanced code analysis tools to provide intelligent coding assistance directly in your editor.
 
 ## Features
 
-- **Code Analysis**: Deep understanding of codebases using AST parsing and semantic analysis
-- **Code Generation**: Generate high-quality code snippets, functions, and entire modules
-- **Multi-Language Support**: Works with Python, JavaScript, TypeScript, Java, C++, and more
-- **Git Integration**: Understands project structure and version control history
-- **Interactive CLI**: Command-line interface for easy interaction
-- **Web Interface**: Optional web-based interface for visual interaction
-- **Plugin System**: Extensible architecture for custom tools and integrations
-- **Context-Aware**: Maintains conversation context and project understanding
-- **Code Quality**: Automated code formatting, linting, and quality checks
+- **🤖 AI Chat Interface**: Interactive chat panel for natural language coding assistance
+- **🔍 Code Analysis**: Deep understanding of your code with complexity analysis and suggestions
+- **✨ Code Generation**: Generate high-quality code snippets, functions, and modules from descriptions
+- **🔍 Code Review**: Automated code review with quality scoring and improvement suggestions
+- **🔧 Auto-Fix**: Automatically fix code issues and improve code quality
+- **📊 Project Overview**: Get comprehensive insights about your project structure and technologies
+- **🎯 Multi-Language Support**: Works with Python, JavaScript, TypeScript, Java, C++, and more
+- **🎨 Beautiful UI**: Modern interface integrated seamlessly with VS Code's design system
+- **⚙️ Flexible Configuration**: Support for both OpenAI and Anthropic AI models
 
 ## Installation
 
-1. Clone this repository:
-```bash
-git clone <repository-url>
-cd ai-coding-agent
-```
+### From VS Code Marketplace
+1. Open VS Code
+2. Go to Extensions (Ctrl+Shift+X)
+3. Search for "AI Coding Agent"
+4. Click Install
 
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+### Manual Installation
+1. Download the `.vsix` file from the releases page
+2. Open VS Code
+3. Run `Extensions: Install from VSIX...` from the Command Palette
+4. Select the downloaded `.vsix` file
 
-3. Set up environment variables:
-```bash
-cp .env.example .env
-# Edit .env with your API keys
-```
+## Setup
 
-## Configuration
+1. **Configure API Keys**: After installation, you'll need to configure at least one AI provider:
+   - Open VS Code Settings (Ctrl+,)
+   - Search for "AI Coding Agent"
+   - Add your OpenAI API key and/or Anthropic API key
 
-Create a `.env` file with the following variables:
-
-```bash
-# AI Provider Configuration
-OPENAI_API_KEY=your_openai_api_key_here
-ANTHROPIC_API_KEY=your_anthropic_api_key_here
-DEFAULT_MODEL=gpt-4  # or claude-3-sonnet-20240229
-
-# Agent Configuration
-MAX_TOKENS=4000
-TEMPERATURE=0.1
-DEBUG=false
-
-# Project Settings
-PROJECT_ROOT=.
-IGNORE_PATTERNS=__pycache__,*.pyc,.git,node_modules
-```
+2. **Choose Default Model**: Select your preferred AI model from the dropdown:
+   - GPT-4, GPT-4 Turbo, GPT-3.5 Turbo (OpenAI)
+   - Claude-3 Sonnet, Claude-3 Opus, Claude-3 Haiku (Anthropic)
 
 ## Usage
 
-### Command Line Interface
+### Chat Interface
+- Click the AI Coding Agent icon in the activity bar
+- Use the chat panel to ask questions, request explanations, or get coding help
+- The AI maintains context throughout your conversation
 
-```bash
-# Start interactive session
-ai-agent chat
+### Quick Actions
+Use the Command Palette (Ctrl+Shift+P) and search for:
 
-# Analyze a specific file
-ai-agent analyze path/to/file.py
+- **AI Coding Agent: Start AI Chat** - Open the chat interface
+- **AI Coding Agent: Analyze Current File** - Analyze the active file
+- **AI Coding Agent: Generate Code** - Generate code from description
+- **AI Coding Agent: Review Code** - Review selected code or entire file
+- **AI Coding Agent: Fix Code Issues** - Automatically fix code problems
+- **AI Coding Agent: Get Project Overview** - Analyze your entire project
 
-# Generate code from description
-ai-agent generate "Create a FastAPI endpoint for user authentication"
+### Context Menu
+Right-click in any code file to access:
+- Analyze File
+- Review Code
+- Fix Code Issues
 
-# Review and suggest improvements for code
-ai-agent review path/to/file.py
+### Sidebar Panel
+The extension adds a dedicated sidebar with:
+- **AI Chat**: Interactive conversation interface
+- **Conversation History**: Track your recent interactions
+- **Quick Tools**: Easy access to common features
 
-# Auto-fix code issues
-ai-agent fix path/to/file.py
+## Configuration
 
-# Get project overview
-ai-agent overview
+| Setting | Description | Default |
+|---------|-------------|---------|
+| `aiCodingAgent.openaiApiKey` | OpenAI API Key for GPT models | "" |
+| `aiCodingAgent.anthropicApiKey` | Anthropic API Key for Claude models | "" |
+| `aiCodingAgent.defaultModel` | Default AI model to use | "gpt-4" |
+| `aiCodingAgent.maxTokens` | Maximum tokens for AI responses | 4000 |
+| `aiCodingAgent.temperature` | AI creativity level (0-1) | 0.1 |
+| `aiCodingAgent.debug` | Enable debug mode | false |
+| `aiCodingAgent.ignorePatterns` | File patterns to ignore | `["__pycache__", "*.pyc", ".git", "node_modules"]` |
+| `aiCodingAgent.autoSave` | Auto-save files after AI modifications | true |
+| `aiCodingAgent.showInlineComments` | Show inline comments for suggestions | true |
+
+## Examples
+
+### Code Analysis
+```typescript
+// Select code and run "Analyze Current File"
+function calculateFibonacci(n: number): number {
+    if (n <= 1) return n;
+    return calculateFibonacci(n - 1) + calculateFibonacci(n - 2);
+}
+```
+**AI Analysis**: "This is a recursive Fibonacci implementation with exponential time complexity. Consider using memoization or iterative approach for better performance."
+
+### Code Generation
+**Prompt**: "Create a TypeScript function to validate email addresses"
+
+**Generated Code**:
+```typescript
+function validateEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
 ```
 
-### Python API
+### Code Review
+The AI reviews your code and provides:
+- Overall quality score
+- Specific issues with severity levels
+- Improvement suggestions
+- Best practice recommendations
 
-```python
-from ai_coding_agent import CodingAgent
+## Supported Languages
 
-# Initialize the agent
-agent = CodingAgent(model="gpt-4")
+- TypeScript / JavaScript
+- Python
+- Java
+- C / C++
+- C#
+- Go
+- Rust
+- PHP
+- Ruby
+- Swift
+- Kotlin
+- Dart
+- HTML / CSS
+- And many more...
 
-# Analyze code
-result = await agent.analyze_file("main.py")
-print(result.summary)
+## Requirements
 
-# Generate code
-code = await agent.generate_code(
-    description="Create a binary search function",
-    language="python"
-)
-print(code)
+- Visual Studio Code 1.74.0 or higher
+- Active internet connection
+- OpenAI API key and/or Anthropic API key
 
-# Chat with the agent
-response = await agent.chat("How can I optimize this function?", context=code)
-print(response)
-```
+## Privacy & Security
 
-## Architecture
+- Your code is only sent to the configured AI provider when you explicitly use AI features
+- API keys are stored securely in VS Code's configuration
+- No code is stored or logged by the extension
+- All communication with AI providers is encrypted
 
-The AI Coding Agent is built with a modular architecture:
+## Troubleshooting
 
-- **Core Agent**: Main intelligence engine that coordinates all operations
-- **Code Analyzer**: Parses and understands code structure using AST and tree-sitter
-- **Context Manager**: Maintains conversation and project context
-- **Tool System**: Extensible tools for various coding tasks
-- **Provider Interface**: Abstracts different AI model providers
-- **CLI Interface**: Command-line interface for user interaction
+### Common Issues
+
+**"No API key configured"**
+- Go to Settings → Extensions → AI Coding Agent
+- Add your OpenAI or Anthropic API key
+
+**"AI request failed"**
+- Check your internet connection
+- Verify your API key is valid and has sufficient credits
+- Try switching to a different AI model
+
+**Extension not loading**
+- Restart VS Code
+- Check for extension updates
+- Look for errors in the Developer Console (Help → Toggle Developer Tools)
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Run the test suite: `pytest`
-6. Submit a pull request
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on:
+- Setting up the development environment
+- Code style guidelines
+- Submitting pull requests
+- Reporting bugs
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a detailed list of changes in each version.
 
 ## License
 
-MIT License - see LICENSE file for details.
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## Support
+
+- 📖 [Documentation](https://github.com/ai-coding-agent/vscode-extension/wiki)
+- 🐛 [Report Issues](https://github.com/ai-coding-agent/vscode-extension/issues)
+- 💬 [Discussions](https://github.com/ai-coding-agent/vscode-extension/discussions)
+- 📧 [Email Support](mailto:support@ai-coding-agent.com)
+
+---
+
+**Boost your coding productivity with AI assistance!** ⚡
