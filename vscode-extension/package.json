@@ -3,7 +3,7 @@
   "displayName": "AI Coding Agent",
   "description": "An intelligent AI-powered coding assistant for code analysis, generation, and assistance",
   "version": "1.0.0",
-  "publisher": "ai-coding-agent",
+  "publisher": "example-publisher",
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -19,8 +19,16 @@
     "code-generation",
     "analysis",
     "openai",
-    "anthropic"
+    "anthropic",
+    "gpt",
+    "claude",
+    "coding",
+    "productivity"
   ],
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
   "activationEvents": [
     "onStartupFinished"
   ],
@@ -239,11 +247,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ai-coding-agent/vscode-extension.git"
+    "url": "https://github.com/YOUR_USERNAME/ai-coding-agent.git"
   },
   "bugs": {
-    "url": "https://github.com/ai-coding-agent/vscode-extension/issues"
+    "url": "https://github.com/YOUR_USERNAME/ai-coding-agent/issues"
   },
-  "homepage": "https://github.com/ai-coding-agent/vscode-extension#readme",
+  "homepage": "https://github.com/YOUR_USERNAME/ai-coding-agent#readme",
   "license": "MIT"
 }
